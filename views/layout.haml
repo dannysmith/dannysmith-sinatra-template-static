@@ -1,0 +1,63 @@
+-#Master Layout File for all pages in the site.
+!!!
+%html{:dir => "ltr", :lang => "en" }
+  %head
+    
+    / || Include Meta ||
+    %meta{ :charset => "utf-8"}
+    %meta{ :name => "keywords", :content => "Danny"}
+    %meta{ :name => "description", :content => "Erm..."}
+    %meta{ :name => "author", :content => "Danny Smith"}
+    %meta{ :name => "robots", :content => "all"}
+    
+    
+    / || RSS Feeds for Articles, Tumblr & Flickr ||
+    %link{ :rel => "alternate", :type => "application/rss+xml", :title => "Danny Smith: All tumblr posts", :href => "http://tumble.dasmith.co.uk/rss"}
+    %link{ :rel => "alternate", :type => "application/rss+xml", :title => "Danny Smith: Articles", :href => "http://tumble.dasmith.co.uk/tagged/article/rss"}
+    %link{ :rel => "alternate", :type => "application/rss+xml", :title => "Danny Smith: Flickr", :href => "feed://api.flickr.com/services/feeds/photos_public.gne?id=91489023@N00&amp;lang=en-us&amp;format=rss_200"}
+    
+    
+    / || Title & Styles ||
+    %title= @title || "Danny Smith"
+    %link{:href => "#{@page}/styles.css", :rel => 'stylesheet', :type => 'text/css'}
+    
+    / || Conditionals for sorting IE6 with a universal stylesheet and pushing HTML5 elements into < IE9.
+    /[if IE 6]
+      %link{ :rel => "stylesheet", :href => "http://universal-ie6-css.googlecode.com/files/ie6.1.0.css", :media => "screen, projection"}
+    
+    /[if lt IE 9]
+      %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js"}
+    
+    / || Include jQuery & Additional Externam Scripts ||
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    
+    - if settings.environment = 'development'
+      / || Include Development Scripts only if we're in Development ||
+      %script{:src => "/javascripts/brosho/jquery.brosho.js"}
+      %link{:href => '/javascripts/brosho/jquery.brosho.css', :rel => 'stylesheet', :type => 'text/css'}
+      / To display grid in background with Cmd + Sh + G
+      %script{:src => "http://gridlayouts.com/_assets/_js/jquery.js"}
+      %script{:src => "http://gridlayouts.com/_assets/_js/gridlayout.js"}
+      
+    / || Include TypeKit
+    %script{:src => "http://use.typekit.com/oum0bwm.js"}
+    %script
+      try{Typekit.load();}catch(e){}
+    
+    / || Application Javascript File
+    %script{:src => "/javascripts/application.js"}
+
+  %body{:id => @page}
+    =yield
+  
+    -if settings.environment = 'development'
+      / || Grid Layout (use Ctrl-Shift-G) if in Dev mode ||
+      #GridLayout
+        #GridLayout-params
+          {
+          column_width:60,
+          column_count:12,
+          subcolumn_count:1,
+          column_gutter:20,
+          align:'center'
+          }

@@ -1,0 +1,18 @@
+//Contains page-specific Layout Styles & Sizes.
+
+$base_height: 14
+//Set up your column sizes
+$column_width: 60
+$column_count: 12
+$column_gutter: 20
+
+//Import mixins and Calculations
+@import "../layout.sass"
+@import "../typography.sass"
+
+//Set up any further layout- and font-size-related styles:
+
+//Sets the wrapper width and centers it. Turn this off if needed.
+#wrapper
+  :width $total_width
+  :margin 0 auto

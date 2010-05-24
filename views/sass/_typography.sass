@@ -1,0 +1,91 @@
+//Contains Generic Typography functions, mixins & classes.
+
+// Calculate baseline & base_font
+$base_font: $base_height * 1px
+$baseline: $base_font * 1.5
+
+//Set up font Sizes
+=garamond
+  :font-size (10/$base_height)*100%
+  :line-height $baseline
+  :margin-bottom $baseline
+=small
+  :font-size (8/$base_height)*100%
+  :line-height $baseline
+  :margin-bottom $baseline
+
+body
+  :font-size $base_font
+  :line-height $baseline
+
+//Set paragraph max-width to 300 x the font size to give proper measure
+p
+  :max-width $base_font * 30
+
+//Set up Typographic Scale
+// The Scale is:  6,7,8,9,10,11,12,14,16,18,21,24,36,48,60,72
+// Sets up some scale based on percentages for compatibility.
+// The line-heights and margins are set as calculations from baseline but may need adjusting.
+
+h1 // 48px
+  :font-size (48/$base_height)*100%
+  :line-height 3 * $baseline
+h2
+  :font-size (36/$base_height)*100%
+  :line-height 2 * $baseline
+  :margin-bottom $baseline
+h3
+  :font-size (24/$base_height)*100%
+  :line-height 2 * $baseline
+  :margin-bottom $baseline
+h4
+  :font-size (21/$base_height)*100%
+  :line-height 1.5 * $baseline
+  :margin-bottom 0.5 * $baseline
+h5
+  :font-size (18/$base_height)*100%
+  :line-height 1.5 * $baseline
+  :margin-bottom 0.5 * $baseline
+h6
+  :font-size (16/$base_height)*100%
+  :line-height $baseline
+  :margin-bottom $baseline
+p
+  :font-size (14/$base_height)*100%
+  :margin-bottom $baseline
+  :line-height $baseline
+.garamond
+  +garamond
+.small
+  +small
+
+//Set line-heights for non-hierachical elements
+blockquote
+  +garamond
+
+ul, ol
+  :margin-bottom $baseline
+  li
+    :line-height $baseline
+
+a
+  :line-height $baseline
+  
+//Hang opening quotes for blockquotes
+blockquote
+  :text-indent -0.5em
+  
+//Style Fancy Ampersands
+.ampersand
+  :font-family Baskerville, Palatino, "Book Antiqua", serif
+  :font-style italic
+  :font-weight normal
+  
+//Set up Standard common font things.
+del
+  :text-decoration line-through
+
+//Puts border on Abbr & Def lists only if they have a title.
+abbr[title], dfn[title]
+  :border-bottom 1px dotted #000
+  :cursor help

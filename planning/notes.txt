@@ -1,0 +1,19 @@
+Notes
+-----
+
+CATEGORIES
+
+document          Any Document
+article           Any proper, written article.
+fieldcraft        Anything relating to fieldcraft.
+uni               Anything to do with University.
+mco               Anything to do with media comms/PR.
+
+
+
+bfc               Basic Fieldcraft Course
+rtc               Admin for Recruit Training Course.
+raf-history       The History of the RAF.
+raf-security      Security Lessons.
+raf-org           The Organisation of the RAF.
+nco-trg           The NCO Training Course.

@@ -1,0 +1,14 @@
+//Site-Wide Mixins & Styles
+
+=hover-button($bg, $hoverbg, $hovercolor)
+  a
+    :padding 3px 10px
+    :-moz-border-radius 18px
+    :-webkit-border-radius 18px
+    :border-radius 18px
+    :-webkit-transition background .1s linear
+    :background $bg
+  
+  a:hover
+    :color $hovercolor
+    :background $hoverbg
